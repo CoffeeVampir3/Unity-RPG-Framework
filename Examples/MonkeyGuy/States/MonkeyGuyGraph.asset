@@ -16,31 +16,31 @@ MonoBehaviour:
   position: {x: 760, y: -104}
   ports:
     keys:
-    - enterState
     - exitState
+    - enterState
     values:
-    - _fieldName: enterState
-      _node: {fileID: -7231603515479900123}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: transitionToState
-        node: {fileID: 6785787174537560379}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
     - _fieldName: exitState
       _node: {fileID: -7231603515479900123}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enterState
         node: {fileID: 4624099607551697499}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enterState
+      _node: {fileID: -7231603515479900123}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: transitionToState
+        node: {fileID: 6785787174537560379}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   enterState: {fileID: 0}
@@ -196,36 +196,36 @@ MonoBehaviour:
   position: {x: 280, y: -120}
   ports:
     keys:
-    - enterState
     - exitState
+    - enterState
     values:
-    - _fieldName: enterState
-      _node: {fileID: 3576591116038585818}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: exitState
-        node: {fileID: 4624099607551697499}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
     - _fieldName: exitState
       _node: {fileID: 3576591116038585818}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enteringState
         node: {fileID: 6785787174537560379}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enterState
+      _node: {fileID: 3576591116038585818}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: 4624099607551697499}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   enterState: {fileID: 0}
   exitState: {fileID: 0}
-  thisState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: b1e399c269b21a2459e9e24c37eb5c7e, type: 2}
   usingTransitionMode: 1
 --- !u!114 &4624099607551697499
 MonoBehaviour:
@@ -243,31 +243,31 @@ MonoBehaviour:
   position: {x: 8, y: -152}
   ports:
     keys:
-    - enterState
     - exitState
+    - enterState
     values:
-    - _fieldName: enterState
-      _node: {fileID: 4624099607551697499}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
-      connections:
-      - fieldName: exitState
-        node: {fileID: -7231603515479900123}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
     - _fieldName: exitState
       _node: {fileID: 4624099607551697499}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: enterState
         node: {fileID: 3576591116038585818}
         reroutePoints: []
       _direction: 1
-      _connectionType: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enterState
+      _node: {fileID: 4624099607551697499}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: -7231603515479900123}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   enterState: {fileID: 0}
@@ -371,20 +371,20 @@ MonoBehaviour:
   position: {x: 520, y: -8}
   ports:
     keys:
-    - enteringState
-    - enteringCondition
     - transitionToState
+    - enteringCondition
+    - enteringState
     values:
-    - _fieldName: enteringState
+    - _fieldName: transitionToState
       _node: {fileID: 6785787174537560379}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: exitState
-        node: {fileID: 3576591116038585818}
+      - fieldName: enterState
+        node: {fileID: -7231603515479900123}
         reroutePoints: []
-      _direction: 0
-      _connectionType: 0
+      _direction: 1
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enteringCondition
@@ -396,19 +396,19 @@ MonoBehaviour:
         node: {fileID: 1756475586999640066}
         reroutePoints: []
       _direction: 0
-      _connectionType: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
-    - _fieldName: transitionToState
+    - _fieldName: enteringState
       _node: {fileID: 6785787174537560379}
-      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-        PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
-      - fieldName: enterState
-        node: {fileID: -7231603515479900123}
+      - fieldName: exitState
+        node: {fileID: 3576591116038585818}
         reroutePoints: []
-      _direction: 1
-      _connectionType: 0
+      _direction: 0
+      _connectionType: 1
       _typeConstraint: 0
       _dynamic: 0
   enteringState: {fileID: 0}

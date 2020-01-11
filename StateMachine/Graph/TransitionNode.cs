@@ -3,13 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-using RT.Properties;
+using RPGFramework.Properties;
 
-namespace RT {
+namespace RPGFramework {
 	public class TransitionNode : Node {
-		[Input] public BaseState enteringState;
-		[Input] public bool enteringCondition;
-		[Output] public BaseState transitionToState;
+		[Input(ShowBackingValue.Never, ConnectionType.Override)] public BaseState enteringState;
+		[Input(ShowBackingValue.Never, ConnectionType.Override)] public bool enteringCondition;
+		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionToState;
 
 		public bool ShouldTransition() {
 			return GetInputValue<bool>("enteringCondition");

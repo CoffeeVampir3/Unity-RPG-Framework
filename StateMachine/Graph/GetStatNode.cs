@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-using RT.Properties;
+using RPGFramework.Properties;
 
 /// <summary>
 /// TODO:: Conditions
 /// </summary>
 
-namespace RT {
+namespace RPGFramework {
 	public class GetStatNode : Node {
-		[Output] public int outputValue; //Variable hard reference by string name in MoveNext()
+		[Output(ShowBackingValue.Never, ConnectionType.Multiple)] public int outputValue; //Variable hard reference by string name in MoveNext()
 		private Stat statValue;
-		public int currentValue = 0;
+		public int currentValue = 0; //Display only.
 		public ModularStat targetStat;
 		private StatBlock statBlock;
 
@@ -27,10 +27,10 @@ namespace RT {
 			if (statBlock == null)
 			{
 				StateMachineGraph fsmGraph = graph as StateMachineGraph;
-				if (fsmGraph.stateControlledObject == null)
+				if (fsmGraph.GetStateMachineOwner() == null)
 					return null;
 
-				statBlock = fsmGraph.stateControlledObject.GetComponent<StatBlock>();
+				statBlock = fsmGraph.GetStateMachineOwner().GetComponent<StatBlock>();
 				if (statBlock == null)
 				{
 					return null;

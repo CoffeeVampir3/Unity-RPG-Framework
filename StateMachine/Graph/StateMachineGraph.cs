@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-namespace RT {
+namespace RPGFramework {
 	[CreateAssetMenu]
 	public class StateMachineGraph : NodeGraph {
 
@@ -11,7 +11,16 @@ namespace RT {
 		[SerializeField]
 		public StateNode currentState { get; private set; }
 		public StateNode defaultState;
-		public GameObject stateControlledObject;
+		[SerializeField]
+		private GameObject stateControlledObject;
+
+		public void SetStateMachineOwner(GameObject owner) {
+			stateControlledObject = owner;
+		}
+
+		public GameObject GetStateMachineOwner() {
+			return stateControlledObject;
+		}
 
 		public void Init(GameObject owningGameObject) {
 			currentState = defaultState;
@@ -23,7 +32,6 @@ namespace RT {
 		}
 
 		public void TransitionToState(StateNode nextState) {
-			//currentState.onExit(); TODO::
 			if(nextState != null)
 			{
 				currentState.OnExit();

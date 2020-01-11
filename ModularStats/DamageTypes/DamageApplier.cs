@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using RT.Properties;
+using RPGFramework.Properties;
 
-namespace RT.PropertiesInternal {
+namespace RPGFramework.PropertiesInternal {
 
 	/// <summary>
 	/// This is essentially a helper class to allow us to easily coupled all the components involved in damaging together at a central

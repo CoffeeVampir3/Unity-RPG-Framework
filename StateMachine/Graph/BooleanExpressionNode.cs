@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-using RT.Properties;
+using RPGFramework.Properties;
 
-namespace RT {
+namespace RPGFramework {
 	public class BooleanExpressionNode : Node {
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public bool rhs;
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public bool lhs;
