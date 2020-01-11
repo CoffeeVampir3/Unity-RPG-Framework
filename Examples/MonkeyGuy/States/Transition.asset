@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42e6cb977ecaed4cad2c08ffb8672a1, type: 3}
-  m_Name: Starting State
+  m_Name: Wiggling
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 760, y: -104}
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e6148a9e530bc44dbc6380156e859b7, type: 3}
-  m_Name: MonkeyGuyGraph
+  m_Name: Transition
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 4624099607551697499}
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42e6cb977ecaed4cad2c08ffb8672a1, type: 3}
-  m_Name: State
+  m_Name: Do the Santa
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 280, y: -120}
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e42e6cb977ecaed4cad2c08ffb8672a1, type: 3}
-  m_Name: Starting State
+  m_Name: Squiggler
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 8, y: -152}
@@ -414,6 +414,7 @@ MonoBehaviour:
   enteringState: {fileID: 0}
   enteringCondition: 0
   transitionToState: {fileID: 0}
+  comment: Transition if Health and Attack are big enough I guess.
 --- !u!114 &8562206422605289608
 MonoBehaviour:
   m_ObjectHideFlags: 0
