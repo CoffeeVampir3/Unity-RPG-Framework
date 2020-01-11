@@ -6,12 +6,14 @@ https://github.com/Siccity/xNode
 # Current Features
 <br/>
 ### State-Behaviour Graph
+<br/>
 ![Behaviour Graph](https://github.com/CoffeeVampir3/Unity-RPG-Framework/blob/screenshots/MsKYfS5jdn.png?raw=true "State Behaviour Graph")
 <br/>
 Allows you to visually script state machine behaviours for any monoB.
 
 <br/>
 ### Scriptable Stats
+<br/>
 ![Scriptable Stats](https://github.com/CoffeeVampir3/Unity-RPG-Framework/blob/screenshots/Unity_KFDpEvKBSn.png?raw=true "Stats")
 <br/>
 Easily add or remove stats on items/players/enemies/whatever. Integration with state behaviour graph.
