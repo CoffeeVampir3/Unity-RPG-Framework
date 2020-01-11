@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using RT.PropertiesInternal;
+using RPGFramework.PropertiesInternal;
 
-namespace RT.Properties {
+namespace RPGFramework.Properties {
 	[CreateAssetMenu(menuName = "ModularStats/DamageType")]
 	public class DamageType : ScriptableObject {
 		[SerializeField]

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RT.Properties {
+namespace RPGFramework.Properties {
 	[Serializable]
 	public class StatBlock : MonoBehaviour {
 		[SerializeField]

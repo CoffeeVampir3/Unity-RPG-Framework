@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RT {
-	public class StateMachine : MonoBehaviour {
-		public StateMachineGraph stateGraph;
+namespace RPGFramework {
 
-		public void Awake() {
+
+	/// <summary>
+	/// Add onto any monobehaviour to control it with a behaviour graph.
+	/// </summary>
+	public class StateMachine : MonoBehaviour {
+		[SerializeField]
+		private StateMachineGraph stateGraph = null; //Our objects behaviour graph
+
+		protected void Awake() {
 			if (stateGraph == null)
 			{
 				return;
 			}
 
 			stateGraph.Init(this.gameObject);
-
-			if(stateGraph.currentState != null)
-			{
-				stateGraph.currentState.thisState.OnEnterState(this.gameObject);
-			}
 		}
 
-		public void Update() {
-			if(stateGraph != null)
+		protected void Start() {
+			//Start the default start immediately after the graph initialization.
+			GetCurrentState()?.OnEnterState(this.gameObject);
+		}
+
+		protected void Update() {
+			if (stateGraph != null)
 			{
-				BaseState cur = GetCurrentState();
-				if(cur != null)
-				{
-					cur.OnUpdate(this.gameObject);
-				}
+				//If we have a current state call its OnUpdate
+				GetCurrentState()?.OnUpdate(this.gameObject);
 			}
 		}
 
@@ -46,5 +49,11 @@ namespace RT {
 			}
 			stateGraph.NextState();
 		}
+
+		public bool CompareCurrentGraph(StateMachineGraph comparingTo) {
+			return stateGraph.Equals(comparingTo);
+		}
+
+
 	}
 }

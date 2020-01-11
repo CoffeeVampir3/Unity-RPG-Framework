@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RT.Properties {
+namespace RPGFramework.Properties {
 	[CreateAssetMenu(menuName = "ModularStats/Stat")]
 	[Serializable]
 	public class ModularStat : ScriptableObject {

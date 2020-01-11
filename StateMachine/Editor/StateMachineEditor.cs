@@ -4,7 +4,7 @@ using UnityEngine;
 using XNodeEditor;
 using XNode;
 
-namespace RT {
+namespace RPGFramework {
 	[CustomNodeGraphEditor(typeof(StateMachineGraph))]
 	public class StateMachineEdtior : NodeGraphEditor {
 

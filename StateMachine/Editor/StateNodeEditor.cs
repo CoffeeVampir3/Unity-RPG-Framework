@@ -4,7 +4,7 @@ using UnityEngine;
 using XNodeEditor;
 using XNode;
 
-namespace RT {
+namespace RPGFramework {
 	[CustomNodeEditor(typeof(StateNode))]
 	public class StateNodeEditor : NodeEditor {
 
@@ -23,15 +23,42 @@ namespace RT {
 				GUI.color = Color.blue;
 			}
 
+			if (graph.defaultState == node && graph.currentState == node)
+			{
+				GUI.color = Color.cyan;
+			}
+
 			string title = target.name;
 			GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
 			GUI.color = Color.white;
 		}
 
+		/// <summary>
+		/// Finds the owner of our state machine if one exists.
+		/// </summary>
+		/// <param name="fsmgraph"></param>
+		private void FindOwner_Editor(StateMachineGraph fsmgraph) {
+			var stateMachines = GameObject.FindObjectsOfType<StateMachine>();
+
+			for(int i = 0; i < stateMachines.Length; i++)
+			{
+				if(stateMachines[i].CompareCurrentGraph(fsmgraph))
+				{
+					fsmgraph.SetStateMachineOwner(stateMachines[i].gameObject);
+				}
+			}
+		}
+
 		public override void OnBodyGUI() {
 			base.OnBodyGUI();
 			StateNode node = target as StateNode;
-			StateMachineGraph graph = node.graph as StateMachineGraph;
+			StateMachineGraph fsmgraph = node.graph as StateMachineGraph;
+
+			if(fsmgraph.GetStateMachineOwner() == null)
+			{
+				FindOwner_Editor(fsmgraph);
+			}
+
 			if (GUILayout.Button("MoveNext Node"))
 			{
 				node.MoveNext();
@@ -39,13 +66,13 @@ namespace RT {
 
 			if (GUILayout.Button("Continue Graph"))
 			{
-				graph.NextState();
+				fsmgraph.NextState();
 			}
 
 			if (GUILayout.Button("Set as default state"))
 			{
 				node.name = "Starting State";
-				graph.defaultState = node;
+				fsmgraph.defaultState = node;
 			}
 		}
 	}

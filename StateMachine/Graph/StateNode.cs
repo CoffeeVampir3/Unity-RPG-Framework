@@ -8,11 +8,11 @@ using XNode;
 /// TODO:: Conditions
 /// </summary>
 
-namespace RT {
+namespace RPGFramework {
 	public class StateNode : Node {
 
-		[Input] public BaseState enterState = null;
-		[Output] public BaseState exitState; //Variable hard reference by string name in MoveNext()
+		[Input(ShowBackingValue.Never, ConnectionType.Override)] public BaseState enterState = null;
+		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState exitState; //Variable hard reference by string name in MoveNext()
 
 		public BaseState thisState;
 
@@ -22,6 +22,7 @@ namespace RT {
 		/// 
 		/// </summary>
 		[SerializeField]
+		[HideInInspector]
 		private bool usingTransitionMode = false;
 		private void StateMode(NodePort from, NodePort to) {
 			if (from.ConnectionCount > 1)
@@ -121,7 +122,7 @@ namespace RT {
 			StateMachineGraph fsmGraph = graph as StateMachineGraph;
 			if(this.thisState != null)
 			{
-				this.thisState.OnEnterState(fsmGraph.stateControlledObject);
+				this.thisState.OnEnterState(fsmGraph.GetStateMachineOwner());
 			}
 		}
 
@@ -129,7 +130,7 @@ namespace RT {
 			StateMachineGraph fsmGraph = graph as StateMachineGraph;
 			if (this.thisState != null)
 			{
-				this.thisState.OnExitState(fsmGraph.stateControlledObject);
+				this.thisState.OnExitState(fsmGraph.GetStateMachineOwner());
 			}
 		}
 
@@ -137,7 +138,7 @@ namespace RT {
 			StateMachineGraph fsmGraph = graph as StateMachineGraph;
 			if (this.thisState != null)
 			{
-				this.thisState.OnUpdate(fsmGraph.stateControlledObject);
+				this.thisState.OnUpdate(fsmGraph.GetStateMachineOwner());
 			}
 		}
 

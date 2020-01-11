@@ -3,21 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XNode;
-using RT.Properties;
+using RPGFramework.Properties;
 
-namespace RT {
+namespace RPGFramework {
 	public class StatThresholdConditionNode : Node {
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public int inputValue;
-		[Output] public bool evaluation;
-		public int inputDisplayStatValue;
-		public int threshold;
-		public int maxValue;
+		[Output(ShowBackingValue.Never, ConnectionType.Multiple)] public bool evaluation;
+		public int inputDisplayStatValue; //Display only.
+		public int threshold; //percentage of maxValue
+		[SerializeField]
+		[HideInInspector]
+		private int maxValue; //Set once on initialization... Never updates if the max changes.
 
 		protected override void Init() {
 			base.Init();
 
 			NodePort fromNode = GetInputPort("inputValue");
-			if(fromNode != null)
+			if(fromNode.IsConnected )
 			{
 				InitializeNode();
 			}
@@ -42,7 +44,7 @@ namespace RT {
 			var inputPort = GetInputPort("inputValue");
 			if(inputPort.IsConnected)
 			{
-				inputDisplayStatValue = GetInputValue<int>("inputValue");
+				inputDisplayStatValue = inputPort.GetInputValue<int>();
 				EvaluateCondition();
 			}
 		}

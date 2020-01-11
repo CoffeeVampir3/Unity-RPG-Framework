@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace RT.Properties {
+namespace RPGFramework.Properties {
 	public class StatUIUpdater : MonoBehaviour {
 		[SerializeField]
 		private ModularStat outputStat = null;

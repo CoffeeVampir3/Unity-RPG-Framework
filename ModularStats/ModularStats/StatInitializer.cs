@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RT.Properties {
+namespace RPGFramework.Properties {
 	[Serializable]
 	public class StatInitializer {
 		public ModularStat originalStat;
