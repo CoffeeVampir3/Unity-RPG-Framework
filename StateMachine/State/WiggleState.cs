@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RT {
 	[CreateAssetMenu]
-	public class SquiggleState : BaseState {
+	public class WiggleState : BaseState {
 		public override void OnEnterState(GameObject thisObject) {
 		}
 
@@ -15,9 +15,8 @@ namespace RT {
 		public override void OnUpdate(GameObject thisObject) {
 			Transform t = thisObject.transform;
 			mew += Mathf.PI / 60f;
-			float newX = 2 * Mathf.Cos(mew);
-			float newY = 2 * Mathf.Sin(mew);
-			t.localPosition = new Vector3(newX, newY);
+			float newZ = 2 * Mathf.Cos(mew);
+			t.localPosition += new Vector3(0, 0, newZ);
 		}
 	}
 }

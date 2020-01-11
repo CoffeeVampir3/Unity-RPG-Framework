@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74db727d44c109649943486b368f8362, type: 3}
-  m_Name: A
+  m_Script: {fileID: 11500000, guid: 9cb0b9a476d3ff546ba53cfcba12e413, type: 3}
+  m_Name: Wiggle
   m_EditorClassIdentifier: 
