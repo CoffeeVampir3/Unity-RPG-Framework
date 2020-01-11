@@ -8,6 +8,7 @@ namespace RT {
 	public class StateMachineGraph : NodeGraph {
 
 		// The current "active" node
+		[SerializeField]
 		public StateNode currentState { get; private set; }
 		public StateNode defaultState;
 		public GameObject stateControlledObject;

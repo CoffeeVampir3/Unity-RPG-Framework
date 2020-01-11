@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using RT.Properties;
 
-namespace RT.CardGame {
+namespace RT.Properties {
 	public class StatUIUpdater : MonoBehaviour {
 		[SerializeField]
 		private ModularStat outputStat = null;

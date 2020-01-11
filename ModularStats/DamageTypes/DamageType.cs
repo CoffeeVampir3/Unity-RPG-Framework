@@ -4,7 +4,7 @@ using UnityEngine;
 using RT.PropertiesInternal;
 
 namespace RT.Properties {
-	[CreateAssetMenu(menuName = "CardGame/ObjElements/DamageType")]
+	[CreateAssetMenu(menuName = "ModularStats/DamageType")]
 	public class DamageType : ScriptableObject {
 		[SerializeField]
 		internal List<ModularStat> damagesStats = new List<ModularStat>();

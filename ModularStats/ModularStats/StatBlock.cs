@@ -51,8 +51,6 @@ namespace RT.Properties {
 
 		#endregion
 
-		#region Sugar
-
 		#region DictionaryIndexing
 
 		public bool TryGetValue(ModularStat originalStat, out Stat statWrapper) {
@@ -123,8 +121,6 @@ namespace RT.Properties {
 				statAction.Invoke(statsActual[i], arg1, arg2, arg3);
 			}
 		}
-
-		#endregion
 
 		#endregion
 

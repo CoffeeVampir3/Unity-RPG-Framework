@@ -73,7 +73,8 @@ namespace RT {
 
 		private void MoveNextImmediateState(NodePort exitPort) {
 			StateNode node = exitPort.Connection.node as StateNode;
-			node.OnEnter();
+			StateMachineGraph fsmGraph = graph as StateMachineGraph;
+			fsmGraph.TransitionToState(node);
 		}
 
 		private void MoveNextTransition(NodePort exitPort) {
@@ -84,7 +85,6 @@ namespace RT {
 				TransitionNode node = connection.node as TransitionNode;
 				if(node.ShouldTransition())
 				{
-					Debug.Log("Transitioning!");
 					StateMachineGraph fsmGraph = graph as StateMachineGraph;
 					fsmGraph.TransitionToState(node.GetTransitionNode());
 				}
@@ -96,7 +96,7 @@ namespace RT {
 
 			if (fsmGraph.currentState != this)
 			{
-				Debug.LogError("Screw up with current state assignment.");
+				Debug.LogError("This node is not the current one.");
 				return;
 			}
 
