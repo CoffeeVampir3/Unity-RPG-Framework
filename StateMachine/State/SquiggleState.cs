@@ -15,9 +15,9 @@ namespace RT {
 		public override void OnUpdate(GameObject thisObject) {
 			Transform t = thisObject.transform;
 			mew += Mathf.PI / 60f;
-			float newX = 2 * Mathf.Cos(mew);
-			float newY = 2 * Mathf.Sin(mew);
-			t.localPosition = new Vector3(newX, newY);
+			float newX = .1f * Mathf.Cos(mew);
+			float newY = .1f * Mathf.Sin(mew);
+			t.localPosition += new Vector3(newX, newY);
 		}
 	}
 }

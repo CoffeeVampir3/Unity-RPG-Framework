@@ -53,7 +53,6 @@ namespace RT {
 			{
 				return statValue.value;
 			}
-			Debug.LogError("Output Null!");
 			return int.MinValue;
 		}
 		

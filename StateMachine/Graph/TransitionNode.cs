@@ -35,9 +35,9 @@ namespace RT {
 				return null;
 			}
 
-			if(GetInputValue<bool>("enteringCondition"))
+			if(condPort.GetInputValue<bool>())
 			{
-				return GetInputValue<BaseState>("enteringState");
+				return enteringState.GetInputValue<BaseState>();
 			}
 			return null;
 		}

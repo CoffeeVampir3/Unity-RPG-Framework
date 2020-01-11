@@ -23,6 +23,11 @@ namespace RT {
 				GUI.color = Color.blue;
 			}
 
+			if (graph.defaultState == node && graph.currentState == node)
+			{
+				GUI.color = Color.cyan;
+			}
+
 			string title = target.name;
 			GUILayout.Label(title, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
 			GUI.color = Color.white;

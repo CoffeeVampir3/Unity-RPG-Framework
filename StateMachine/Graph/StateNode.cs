@@ -22,6 +22,7 @@ namespace RT {
 		/// 
 		/// </summary>
 		[SerializeField]
+		[HideInInspector]
 		private bool usingTransitionMode = false;
 		private void StateMode(NodePort from, NodePort to) {
 			if (from.ConnectionCount > 1)

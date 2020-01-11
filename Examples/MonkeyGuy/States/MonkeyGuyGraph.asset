@@ -25,7 +25,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: transitionToState
-        node: {fileID: 7783921366930373861}
+        node: {fileID: 6785787174537560379}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -114,9 +114,9 @@ MonoBehaviour:
   - {fileID: 6316015617184905236}
   - {fileID: -6611983416810447778}
   - {fileID: 1756475586999640066}
-  - {fileID: 7783921366930373861}
   - {fileID: -7231603515479900123}
   - {fileID: 3576591116038585818}
+  - {fileID: 6785787174537560379}
   defaultState: {fileID: 4624099607551697499}
   stateControlledObject: {fileID: 0}
 --- !u!114 &1756475586999640066
@@ -169,7 +169,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: enteringCondition
-        node: {fileID: 7783921366930373861}
+        node: {fileID: 6785787174537560379}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
         PublicKeyToken=null
       connections:
       - fieldName: enteringState
-        node: {fileID: 7783921366930373861}
+        node: {fileID: 6785787174537560379}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -355,7 +355,7 @@ MonoBehaviour:
   inputDisplayStatValue: 2000
   threshold: 50
   maxValue: 2000
---- !u!114 &7783921366930373861
+--- !u!114 &6785787174537560379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -368,7 +368,7 @@ MonoBehaviour:
   m_Name: Transition
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 520, y: 8}
+  position: {x: 520, y: -8}
   ports:
     keys:
     - enteringState
@@ -376,7 +376,7 @@ MonoBehaviour:
     - transitionToState
     values:
     - _fieldName: enteringState
-      _node: {fileID: 7783921366930373861}
+      _node: {fileID: 6785787174537560379}
       _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:
@@ -388,7 +388,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: enteringCondition
-      _node: {fileID: 7783921366930373861}
+      _node: {fileID: 6785787174537560379}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
@@ -400,7 +400,7 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
     - _fieldName: transitionToState
-      _node: {fileID: 7783921366930373861}
+      _node: {fileID: 6785787174537560379}
       _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
         PublicKeyToken=null
       connections:

@@ -17,7 +17,7 @@ namespace RT {
 			base.Init();
 
 			NodePort fromNode = GetInputPort("inputValue");
-			if(fromNode != null)
+			if(fromNode.IsConnected )
 			{
 				InitializeNode();
 			}
@@ -42,7 +42,7 @@ namespace RT {
 			var inputPort = GetInputPort("inputValue");
 			if(inputPort.IsConnected)
 			{
-				inputDisplayStatValue = GetInputValue<int>("inputValue");
+				inputDisplayStatValue = inputPort.GetInputValue<int>();
 				EvaluateCondition();
 			}
 		}
