@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 using RT.Properties;
-using Sirenix.OdinInspector;
 
 namespace RT {
 	public class StatThresholdConditionNode : Node {
@@ -39,7 +38,6 @@ namespace RT {
 			evaluation = (q >= m);
 		}
 
-		[Button]
 		public void Condition() {
 			var inputPort = GetInputPort("inputValue");
 			if(inputPort.IsConnected)

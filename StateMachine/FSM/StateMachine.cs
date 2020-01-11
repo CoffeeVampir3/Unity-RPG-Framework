@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
 namespace RT {
 	public class StateMachine : MonoBehaviour {
@@ -29,7 +28,6 @@ namespace RT {
 			return stateGraph.currentState.thisState;
 		}
 
-		[Button]
 		public void NextState() {
 			if (stateGraph == null)
 			{

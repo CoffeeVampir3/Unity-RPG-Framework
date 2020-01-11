@@ -1,0 +1,449 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7231603515479900123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42e6cb977ecaed4cad2c08ffb8672a1, type: 3}
+  m_Name: Starting State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 760, y: -104}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: -7231603515479900123}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: transitionToState
+        node: {fileID: 7783921366930373861}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: -7231603515479900123}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: 4624099607551697499}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: 09b76a4c0101eed4db222664ae7924a6, type: 2}
+  usingTransitionMode: 0
+--- !u!114 &-6611983416810447778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0692d06cfaf5040bbc4cb6bce03a02, type: 3}
+  m_Name: Stat Threshold Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 88, y: 152}
+  ports:
+    keys:
+    - inputValue
+    - evaluation
+    values:
+    - _fieldName: inputValue
+      _node: {fileID: -6611983416810447778}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: outputValue
+        node: {fileID: 8562206422605289608}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: evaluation
+      _node: {fileID: -6611983416810447778}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: lhs
+        node: {fileID: 1756475586999640066}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  inputValue: 0
+  evaluation: 1
+  inputDisplayStatValue: 50
+  threshold: 50
+  maxValue: 50
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6148a9e530bc44dbc6380156e859b7, type: 3}
+  m_Name: MonkeyGuyGraph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 4624099607551697499}
+  - {fileID: 6091841991813510366}
+  - {fileID: 8562206422605289608}
+  - {fileID: 6316015617184905236}
+  - {fileID: -6611983416810447778}
+  - {fileID: 1756475586999640066}
+  - {fileID: 7783921366930373861}
+  - {fileID: -7231603515479900123}
+  - {fileID: 3576591116038585818}
+  defaultState: {fileID: 4624099607551697499}
+  stateControlledObject: {fileID: 0}
+--- !u!114 &1756475586999640066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9de2fdfa7c7574e93b1bc6efdd621d, type: 3}
+  m_Name: Boolean Expression
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 296, y: 120}
+  ports:
+    keys:
+    - rhs
+    - lhs
+    - result
+    values:
+    - _fieldName: rhs
+      _node: {fileID: 1756475586999640066}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: evaluation
+        node: {fileID: 6316015617184905236}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: lhs
+      _node: {fileID: 1756475586999640066}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: evaluation
+        node: {fileID: -6611983416810447778}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: result
+      _node: {fileID: 1756475586999640066}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: enteringCondition
+        node: {fileID: 7783921366930373861}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  rhs: 1
+  lhs: 1
+  result: 0
+  currentResult: 1
+  operation: 0
+--- !u!114 &3576591116038585818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42e6cb977ecaed4cad2c08ffb8672a1, type: 3}
+  m_Name: State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 280, y: -120}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: 3576591116038585818}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: 4624099607551697499}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: 3576591116038585818}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enteringState
+        node: {fileID: 7783921366930373861}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: 134f48a5d634360459475b6afdb7a32b, type: 2}
+  usingTransitionMode: 1
+--- !u!114 &4624099607551697499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42e6cb977ecaed4cad2c08ffb8672a1, type: 3}
+  m_Name: Starting State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 8, y: -152}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: 4624099607551697499}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: -7231603515479900123}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: 4624099607551697499}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: 3576591116038585818}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: 695de2c09ac9db043bd1341c51ca4b61, type: 2}
+  usingTransitionMode: 0
+--- !u!114 &6091841991813510366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d8ca3dfb9fd334cb135fa83e2f38c8, type: 3}
+  m_Name: Get Stat
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -136, y: 56}
+  ports:
+    keys:
+    - outputValue
+    values:
+    - _fieldName: outputValue
+      _node: {fileID: 6091841991813510366}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: inputValue
+        node: {fileID: 6316015617184905236}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  outputValue: 2000
+  currentValue: 2000
+  targetStat: {fileID: 11400000, guid: 1e5b3693227b7d746ac8cc9f1ec33113, type: 2}
+--- !u!114 &6316015617184905236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a0692d06cfaf5040bbc4cb6bce03a02, type: 3}
+  m_Name: Stat Threshold Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 88, y: 56}
+  ports:
+    keys:
+    - inputValue
+    - evaluation
+    values:
+    - _fieldName: inputValue
+      _node: {fileID: 6316015617184905236}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: outputValue
+        node: {fileID: 6091841991813510366}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: evaluation
+      _node: {fileID: 6316015617184905236}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: rhs
+        node: {fileID: 1756475586999640066}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  inputValue: 0
+  evaluation: 1
+  inputDisplayStatValue: 2000
+  threshold: 50
+  maxValue: 2000
+--- !u!114 &7783921366930373861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7472a4bab325aad419ea5cceb444dea8, type: 3}
+  m_Name: Transition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 520, y: 8}
+  ports:
+    keys:
+    - enteringState
+    - enteringCondition
+    - transitionToState
+    values:
+    - _fieldName: enteringState
+      _node: {fileID: 7783921366930373861}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: 3576591116038585818}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: enteringCondition
+      _node: {fileID: 7783921366930373861}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: result
+        node: {fileID: 1756475586999640066}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: transitionToState
+      _node: {fileID: 7783921366930373861}
+      _typeQualifiedName: RT.BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: -7231603515479900123}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  enteringState: {fileID: 0}
+  enteringCondition: 0
+  transitionToState: {fileID: 0}
+--- !u!114 &8562206422605289608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d8ca3dfb9fd334cb135fa83e2f38c8, type: 3}
+  m_Name: Get Stat
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -136, y: 152}
+  ports:
+    keys:
+    - outputValue
+    values:
+    - _fieldName: outputValue
+      _node: {fileID: 8562206422605289608}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: inputValue
+        node: {fileID: -6611983416810447778}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  outputValue: 50
+  currentValue: 50
+  targetStat: {fileID: 11400000, guid: c40d95f1920aa0d4c8286e9191ff21ff, type: 2}

@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RT.PropertiesInternal;
-using System.Runtime.InteropServices;
 
 namespace RT.Properties {
 
-	[CreateAssetMenu(menuName = "CardGame/ObjElements/CostType")]
+	[CreateAssetMenu(menuName = "ModularStats/CostType")]
 	public class CostType : ScriptableObject {
 		[SerializeField]
 		internal List<CostAssociation> costStats = new List<CostAssociation>();
