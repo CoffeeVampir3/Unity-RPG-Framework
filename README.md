@@ -1,3 +1,5 @@
 # Unity RPG Framework
  
-Requires xNode
+Requires xNode found here:
+https://github.com/Siccity/xNode
+
