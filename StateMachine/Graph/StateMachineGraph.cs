@@ -26,6 +26,7 @@ namespace RT {
 			//currentState.onExit(); TODO::
 			if(nextState != null)
 			{
+				currentState.OnExit();
 				currentState = nextState;
 				nextState.OnEnter();
 			} else

@@ -125,6 +125,22 @@ namespace RT {
 			}
 		}
 
+		public void OnExit() {
+			StateMachineGraph fsmGraph = graph as StateMachineGraph;
+			if (this.thisState != null)
+			{
+				this.thisState.OnExitState(fsmGraph.stateControlledObject);
+			}
+		}
+
+		public void OnUpdate() {
+			StateMachineGraph fsmGraph = graph as StateMachineGraph;
+			if (this.thisState != null)
+			{
+				this.thisState.OnUpdate(fsmGraph.stateControlledObject);
+			}
+		}
+
 		#endregion
 
 	}
