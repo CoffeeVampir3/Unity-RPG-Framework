@@ -20,6 +20,17 @@ namespace RT {
 			}
 		}
 
+		public void Update() {
+			if(stateGraph != null)
+			{
+				BaseState cur = GetCurrentState();
+				if(cur != null)
+				{
+					cur.OnUpdate(this.gameObject);
+				}
+			}
+		}
+
 		public BaseState GetCurrentState() {
 			if(stateGraph == null)
 			{
