@@ -11,6 +11,9 @@ namespace RPGFramework {
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public bool enteringCondition;
 		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionToState;
 
+		[TextArea(2, 12)]
+		public string comment;
+
 		public bool ShouldTransition() {
 			return GetInputValue<bool>("enteringCondition");
 		}
