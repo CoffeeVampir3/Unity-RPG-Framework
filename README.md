@@ -1,3 +1,7 @@
+# Active Work in Progress
+
+As a note, this library is an active work in progress and shouldn't be relied upon as a stable implementation yet. <3
+
 # Unity RPG Framework
  
 Requires xNode found here:
