@@ -15,6 +15,10 @@ namespace RPGFramework.CndGraph {
 			{
 				return base.GetNodeMenuName(type).Replace("Conditions/", "");
 			}
+			else if (type.Namespace.Contains("RPGFramework.Portals"))
+			{
+				return base.GetNodeMenuName(type).Replace("Portals/", "");
+			}
 			else return null;
 		}
 

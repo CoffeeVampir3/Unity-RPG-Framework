@@ -11,60 +11,10 @@ using XNode;
 namespace RPGFramework.SMGraph {
 	public class StateNode : Node {
 
-		[Input(ShowBackingValue.Never, ConnectionType.Override)] public BaseState enterState = null;
+		[Input(ShowBackingValue.Never, ConnectionType.Multiple)] public BaseState enterState = null;
 		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState exitState; //Variable hard reference by string name in MoveNext()
 
 		public BaseState thisState;
-
-		#region Connections
-		/// <summary>
-		/// Creating a connection branches into two modes:
-		/// 
-		/// </summary>
-		[SerializeField]
-		[HideInInspector]
-		private bool usingTransitionMode = false;
-		private void StateMode(NodePort from, NodePort to) {
-			if (from.ConnectionCount > 1)
-			{
-				from.ClearConnections();
-				from.Connect(to);
-				usingTransitionMode = false;
-			}
-		}
-
-		private void TransitionMode(NodePort from, NodePort to) {
-			if (usingTransitionMode == false)
-			{
-				if (from.ConnectionCount > 1)
-				{
-					from.ClearConnections();
-					from.Connect(to);
-				}
-			}
-			usingTransitionMode = true;
-		}
-
-		public override void OnCreateConnection(NodePort from, NodePort to) {
-			if (to.node is StateNode)
-			{
-				StateMode(from, to);
-				return;
-			}
-
-			else if (to.node is TransitionNode)
-			{
-				TransitionMode(from, to);
-				return;
-			} else
-			{
-				//Invalid connection
-				Debug.LogError("Invalid connection");
-				from.ClearConnections();
-			}
-		}
-
-		#endregion
 
 		public override object GetValue(NodePort port) {
 			return thisState;
@@ -72,23 +22,37 @@ namespace RPGFramework.SMGraph {
 
 		#region State Controls
 
-		private void MoveNextImmediateState(NodePort exitPort) {
-			StateNode node = exitPort.Connection.node as StateNode;
-			StateMachineGraph fsmGraph = graph as StateMachineGraph;
-			fsmGraph.TransitionToState(node);
+		private void MoveNextImmediateState(Node connectingNode) {
+			if(connectingNode is StateNode)
+			{
+				StateNode node = connectingNode as StateNode;
+				StateMachineGraph fsmGraph = graph as StateMachineGraph;
+				fsmGraph.TransitionToState(node);
+			}
 		}
 
-		private void MoveNextTransition(NodePort exitPort) {
-			var connectedPorts = exitPort.GetConnections();
-
-			foreach(NodePort connection in connectedPorts)
+		private void MoveNextTransition(Node connectingNode) {
+			if(connectingNode is TransitionNode)
 			{
-				TransitionNode node = connection.node as TransitionNode;
-				if(node.ShouldTransition())
-				{
-					StateMachineGraph fsmGraph = graph as StateMachineGraph;
-					fsmGraph.TransitionToState(node.GetTransitionNode());
-				}
+				TransitionNode node = connectingNode as TransitionNode;
+				bool shouldTransition = node.ShouldTransition();
+				StateNode transitionNode = node.GetTransitionNode(shouldTransition);
+				StateMachineGraph fsmGraph = graph as StateMachineGraph;
+				fsmGraph.TransitionToState(transitionNode);
+			}
+		}
+
+		private void MoveNextPortal(Node connectingNode) {
+			if (connectingNode is Portals.PortalNodeInput)
+			{
+				Portals.PortalNodeInput inNode = connectingNode as Portals.PortalNodeInput;
+				Portals.PortalNodeOutput outNode = inNode.outputNode;
+				NodePort outNodeExitPort = outNode.GetOutputPort("outputValue");
+
+				//Recur through the portal
+				MoveNextImmediateState(outNodeExitPort.Connection.node);
+				MoveNextTransition(outNodeExitPort.Connection.node);
+				MoveNextPortal(outNodeExitPort.Connection.node);
 			}
 		}
 
@@ -109,13 +73,9 @@ namespace RPGFramework.SMGraph {
 				return;
 			}
 
-			if(!usingTransitionMode)
-			{
-				MoveNextImmediateState(exitPort);
-			} else
-			{
-				MoveNextTransition(exitPort);
-			}
+			MoveNextImmediateState(exitPort.Connection.node);
+			MoveNextTransition(exitPort.Connection.node);
+			MoveNextPortal(exitPort.Connection.node);
 		}
 
 		public void OnEnter() {

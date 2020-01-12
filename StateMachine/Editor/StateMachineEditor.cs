@@ -13,8 +13,14 @@ namespace RPGFramework.SMGraph {
 			{
 				return base.GetNodeMenuName(type).Replace("State Machine/", "");
 			}
+			else if (type.Namespace.Contains("RPGFramework.Portals"))
+			{
+				return base.GetNodeMenuName(type).Replace("Portals/", "");
+			}
 			else return null;
 		}
+
+
 
 		/// <summary>
 		/// Allows the window to be repainted so our states update correctly.
