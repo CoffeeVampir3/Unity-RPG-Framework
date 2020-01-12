@@ -4,7 +4,7 @@ using UnityEngine;
 using XNodeEditor;
 using XNode;
 
-namespace RPGFramework {
+namespace RPGFramework.SMGraph {
 	[CustomNodeEditor(typeof(StateNode))]
 	public class StateNodeEditor : NodeEditor {
 
@@ -59,12 +59,7 @@ namespace RPGFramework {
 				FindOwner_Editor(fsmgraph);
 			}
 
-			if (GUILayout.Button("MoveNext Node"))
-			{
-				node.MoveNext();
-			}
-
-			if (GUILayout.Button("Continue Graph"))
+			if (GUILayout.Button("Proceed State"))
 			{
 				fsmgraph.NextState();
 			}

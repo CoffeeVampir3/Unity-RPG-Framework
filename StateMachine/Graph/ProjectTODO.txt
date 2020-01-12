@@ -1,7 +1,0 @@
-﻿Make a base condition node... seems reasonable.
-
-Expand boolean logic maybe.
-
-Por||tal nodes.
-
-Overscope everything.

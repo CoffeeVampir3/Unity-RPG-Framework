@@ -5,12 +5,19 @@ using UnityEngine;
 using XNode;
 using RPGFramework.Properties;
 
-namespace RPGFramework {
+/// <summary>
+/// Deprecated, need to rework this.
+/// </summary>
+
+namespace RPGFramework.CndGraph {
+	/*
 	public class BooleanExpressionNode : Node {
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public bool rhs;
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public bool lhs;
 		[Output(ShowBackingValue.Never, ConnectionType.Multiple)] public bool result;
-		public bool currentResult = false;
+		[SerializeField]
+		[HideInInspector]
+		private bool currentResult = false;
 
 		public ExpressionOperation operation;
 
@@ -46,4 +53,5 @@ namespace RPGFramework {
 			Or
 		}
 	}
+	*/
 }
