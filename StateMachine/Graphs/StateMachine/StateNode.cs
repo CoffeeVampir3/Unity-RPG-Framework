@@ -8,7 +8,7 @@ using XNode;
 /// TODO:: Conditions
 /// </summary>
 
-namespace RPGFramework {
+namespace RPGFramework.SMGraph {
 	public class StateNode : Node {
 
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public BaseState enterState = null;
@@ -122,7 +122,11 @@ namespace RPGFramework {
 			StateMachineGraph fsmGraph = graph as StateMachineGraph;
 			if(this.thisState != null)
 			{
-				this.thisState.OnEnterState(fsmGraph.GetStateMachineOwner());
+				GameObject owner = fsmGraph.GetStateMachineOwner();
+				if(owner != null)
+				{
+					this.thisState.OnEnterState(owner);
+				}
 			}
 		}
 
@@ -130,7 +134,11 @@ namespace RPGFramework {
 			StateMachineGraph fsmGraph = graph as StateMachineGraph;
 			if (this.thisState != null)
 			{
-				this.thisState.OnExitState(fsmGraph.GetStateMachineOwner());
+				GameObject owner = fsmGraph.GetStateMachineOwner();
+				if (owner != null)
+				{
+					this.thisState.OnEnterState(owner);
+				}
 			}
 		}
 
@@ -138,7 +146,11 @@ namespace RPGFramework {
 			StateMachineGraph fsmGraph = graph as StateMachineGraph;
 			if (this.thisState != null)
 			{
-				this.thisState.OnUpdate(fsmGraph.GetStateMachineOwner());
+				GameObject owner = fsmGraph.GetStateMachineOwner();
+				if (owner != null)
+				{
+					this.thisState.OnEnterState(owner);
+				}
 			}
 		}
 

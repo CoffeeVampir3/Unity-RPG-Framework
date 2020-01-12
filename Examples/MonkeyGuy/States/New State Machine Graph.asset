@@ -1,0 +1,160 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3463671108011848650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3590aca0ae98dd04484996bdb365fd7e, type: 3}
+  m_Name: State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 56, y: 24}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: -3463671108011848650}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: transitionToState
+        node: {fileID: 3021368074373059459}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: -3463671108011848650}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: 2721146271082173132}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: 695de2c09ac9db043bd1341c51ca4b61, type: 2}
+  usingTransitionMode: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4336a0bc045d7c94d88cc78835adf2ea, type: 3}
+  m_Name: New State Machine Graph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 2721146271082173132}
+  - {fileID: -3463671108011848650}
+  - {fileID: 3021368074373059459}
+  stateControlledObject: {fileID: 0}
+--- !u!114 &2721146271082173132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3590aca0ae98dd04484996bdb365fd7e, type: 3}
+  m_Name: Starting State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -504, y: 8}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: 2721146271082173132}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: -3463671108011848650}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: 2721146271082173132}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enteringState
+        node: {fileID: 3021368074373059459}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: b1e399c269b21a2459e9e24c37eb5c7e, type: 2}
+  usingTransitionMode: 1
+--- !u!114 &3021368074373059459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf51c83af00fd7442a3d119894570883, type: 3}
+  m_Name: Transition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -248, y: 88}
+  ports:
+    keys:
+    - enteringState
+    - transitionToState
+    values:
+    - _fieldName: enteringState
+      _node: {fileID: 3021368074373059459}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: 2721146271082173132}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: transitionToState
+      _node: {fileID: 3021368074373059459}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: -3463671108011848650}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  enteringState: {fileID: 0}
+  transitionToState: {fileID: 0}
+  conditionGraph: {fileID: 11400000, guid: 8bbc8723b865fa04ba6005acb2fc2c92, type: 2}
+  comment: 

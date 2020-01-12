@@ -4,18 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 using RPGFramework.Properties;
+using RPGFramework.CndGraph;
 
-namespace RPGFramework {
+namespace RPGFramework.SMGraph {
 	public class TransitionNode : Node {
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public BaseState enteringState;
-		[Input(ShowBackingValue.Never, ConnectionType.Override)] public bool enteringCondition;
 		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionToState;
+
+		[HideInInspector]
+		public ConditionalGraph conditionGraph = null;
 
 		[TextArea(2, 12)]
 		public string comment;
 
 		public bool ShouldTransition() {
-			return GetInputValue<bool>("enteringCondition");
+			if (conditionGraph == null)
+			{
+				Debug.LogError("No graph associated with transition: " + this.name);
+				return false; //Deny transition by default.
+			}
+			return conditionGraph.EvaluateGraph();
 		}
 
 		public StateNode GetTransitionNode() {
@@ -31,17 +39,8 @@ namespace RPGFramework {
 
 		public override object GetValue(NodePort port) {
 			NodePort enteringState = GetInputPort("enteringState");
-			NodePort condPort = GetInputPort("enteringCondition");
 
-			//Ports arent connected, no transition
-			if(!enteringState.IsConnected || !condPort.IsConnected) {
-				return null;
-			}
-
-			if(condPort.GetInputValue<bool>())
-			{
-				return enteringState.GetInputValue<BaseState>();
-			}
+			//Evaluate condition graph and return its value
 			return null;
 		}
 

@@ -9,9 +9,11 @@ using RPGFramework.Properties;
 /// TODO:: Conditions
 /// </summary>
 
-namespace RPGFramework {
-	public class GetStatNode : Node {
+namespace RPGFramework.CndGraph {
+	public class GetStatNode : ConditionNode {
 		[Output(ShowBackingValue.Never, ConnectionType.Multiple)] public int outputValue; //Variable hard reference by string name in MoveNext()
+
+
 		private Stat statValue;
 		public int currentValue = 0; //Display only.
 		public ModularStat targetStat;
@@ -20,20 +22,23 @@ namespace RPGFramework {
 		protected override void Init() {
 			base.Init();
 
-			GetStat();
+			Evaluate();
 		}
 
-		public Stat GetStat() {
+		private void EvaluateStat() {
+			if (targetStat == null)
+				return;
+
 			if (statBlock == null)
 			{
-				StateMachineGraph fsmGraph = graph as StateMachineGraph;
-				if (fsmGraph.GetStateMachineOwner() == null)
-					return null;
+				ConditionalGraph condGraph = graph as ConditionalGraph;
+				if (condGraph.GetStateMachineOwner() == null)
+					return;
 
-				statBlock = fsmGraph.GetStateMachineOwner().GetComponent<StatBlock>();
+				statBlock = condGraph.GetStateMachineOwner().GetComponent<StatBlock>();
 				if (statBlock == null)
 				{
-					return null;
+					return;
 				}
 			}
 
@@ -44,11 +49,14 @@ namespace RPGFramework {
 				outputValue = retreivedStat.value;
 				statValue = retreivedStat;
 			}
-			return null;
+		}
+
+		public override void Evaluate() {
+			EvaluateStat();
 		}
 
 		public override object GetValue(NodePort port) {
-			GetStat();
+			Evaluate();
 			if (statValue != null)
 			{
 				return statValue.value;

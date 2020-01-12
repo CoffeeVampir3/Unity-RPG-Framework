@@ -3,14 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using XNode;
 
-namespace RPGFramework {
+namespace RPGFramework.SMGraph {
 	[CreateAssetMenu]
 	public class StateMachineGraph : NodeGraph {
 
 		// The current "active" node
 		[SerializeField]
 		public StateNode currentState { get; private set; }
-		public StateNode defaultState;
+		private StateNode _defaultState;
+		public StateNode defaultState {
+			get { return _defaultState; }
+			set {
+				_defaultState = value;
+				if(currentState == null)
+				{
+					currentState = value;
+				}
+			}
+		}
+
 		[SerializeField]
 		private GameObject stateControlledObject;
 

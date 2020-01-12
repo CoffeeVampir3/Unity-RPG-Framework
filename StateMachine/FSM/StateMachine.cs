@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPGFramework.SMGraph;
 
 namespace RPGFramework {
-
 
 	/// <summary>
 	/// Add onto any monobehaviour to control it with a behaviour graph.
@@ -51,6 +51,9 @@ namespace RPGFramework {
 		}
 
 		public bool CompareCurrentGraph(StateMachineGraph comparingTo) {
+			if (stateGraph == null)
+				return false;
+
 			return stateGraph.Equals(comparingTo);
 		}
 
