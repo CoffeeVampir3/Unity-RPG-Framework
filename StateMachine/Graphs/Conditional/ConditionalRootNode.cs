@@ -20,8 +20,6 @@ namespace RPGFramework.CndGraph {
 				transitionValue = condPort.GetInputValue<bool>();
 			} else
 			{
-				ConditionalGraph condGraph = this.graph as ConditionalGraph;
-				Debug.LogError("Transition input port not connected in " + condGraph.name);
 				transitionValue = false; //Don't allow the transition as a default.
 			}
 		}

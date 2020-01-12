@@ -29,8 +29,8 @@ namespace RPGFramework.SMGraph {
 			string nodePath = AssetDatabase.GetAssetPath(node);
 
 			string condPath = nodePath.Substring(0, nodePath.LastIndexOf("/") + 1);
-			condPath += node.name + "subGraph.asset";
-			condGraph.name = node.name + "ConditionalGraph";
+			condPath += "cndGraph_" + node.graph.name + "_" + node.name + ".asset";
+			condGraph.name = node.graph.name + "_" + node.name + "_ConditionalGraph";
 			string finalPath = AssetDatabase.GenerateUniqueAssetPath(condPath);
 			AssetDatabase.CreateAsset(condGraph, finalPath);
 

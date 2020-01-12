@@ -59,14 +59,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96fa1d73aa3c48a4bb497e1c364c613a, type: 3}
-  m_Name: gf
+  m_Name: cndGraph_MonkeyGuyFSMGraph_Transition
   m_EditorClassIdentifier: 
   nodes:
   - {fileID: 8878383649343095839}
   - {fileID: 4552077336194989621}
   - {fileID: -2861181585215777649}
   - {fileID: 1946827441617631282}
-  - {fileID: 0}
   - {fileID: 2716999733831404593}
   parentNode: {fileID: 3021368074373059459, guid: e177f54d048119f4e8e9b11c4f4ed6f7,
     type: 2}
