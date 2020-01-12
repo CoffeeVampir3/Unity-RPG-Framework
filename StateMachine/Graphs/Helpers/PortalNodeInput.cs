@@ -6,7 +6,7 @@ using XNode;
 using RPGFramework.Properties;
 using RPGFramework.CndGraph;
 
-namespace RPGFramework.Portals {
+namespace RPGFramework.Helpers {
 	public class PortalNodeInput : Node {
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public Any enteringValue;
 		[SerializeField]

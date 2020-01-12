@@ -6,11 +6,10 @@ using XNode;
 using RPGFramework.Properties;
 using RPGFramework.CndGraph;
 
-namespace RPGFramework.Portals {
+namespace RPGFramework.Helpers {
 	public class PortalNodeOutput : Node {
 		[Output(ShowBackingValue.Never, ConnectionType.Multiple)] public Any outputValue;
-		public PortalNodeInput inputNode;
-
+		public PortalNodeInput inputNode; //States dont care, used to transmit values only.
 
 		public override void OnCreateConnection(NodePort from, NodePort to) {
 			if (this.name.Contains("Node Output"))

@@ -43,10 +43,10 @@ namespace RPGFramework.SMGraph {
 		}
 
 		private void MoveNextPortal(Node connectingNode) {
-			if (connectingNode is Portals.PortalNodeInput)
+			if (connectingNode is Helpers.PortalNodeInput)
 			{
-				Portals.PortalNodeInput inNode = connectingNode as Portals.PortalNodeInput;
-				Portals.PortalNodeOutput outNode = inNode.outputNode;
+				Helpers.PortalNodeInput inNode = connectingNode as Helpers.PortalNodeInput;
+				Helpers.PortalNodeOutput outNode = inNode.outputNode;
 				NodePort outNodeExitPort = outNode.GetOutputPort("outputValue");
 
 				//Recur through the portal

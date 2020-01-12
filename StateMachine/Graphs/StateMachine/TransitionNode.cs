@@ -12,11 +12,13 @@ namespace RPGFramework.SMGraph {
 		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionIfTrue;
 		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionIfFalse;
 
+		[SerializeField]
+		public bool overrideOut = false;
+		[SerializeField]
+		public bool overrideValue = false;
+
 		[HideInInspector]
 		public ConditionalGraph conditionGraph = null;
-
-		[TextArea(2, 12)]
-		public string comment;
 
 		public bool ShouldTransition() {
 			if (conditionGraph == null)
@@ -27,7 +29,11 @@ namespace RPGFramework.SMGraph {
 			return conditionGraph.EvaluateGraph();
 		}
 
-		public StateNode GetTransitionNode(bool transitionBranch) {
+		public StateNode GetTransitionNode(bool transitionBranch, bool dontOverride = false) {
+			if(overrideOut == true && dontOverride == false)
+			{
+				return GetTransitionNode(overrideValue, true);
+			}
 			if(transitionBranch)
 			{
 				NodePort portBranch = GetPort("transitionIfTrue");
