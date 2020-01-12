@@ -9,7 +9,8 @@ using RPGFramework.CndGraph;
 namespace RPGFramework.SMGraph {
 	public class TransitionNode : Node {
 		[Input(ShowBackingValue.Never, ConnectionType.Override)] public BaseState enteringState;
-		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionToState;
+		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionIfTrue;
+		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState transitionIfFalse;
 
 		[HideInInspector]
 		public ConditionalGraph conditionGraph = null;
@@ -26,12 +27,18 @@ namespace RPGFramework.SMGraph {
 			return conditionGraph.EvaluateGraph();
 		}
 
-		public StateNode GetTransitionNode() {
-			NodePort p = GetPort("transitionToState");
-			if(p.IsConnected)
+		public StateNode GetTransitionNode(bool transitionBranch) {
+			if(transitionBranch)
 			{
-				NodePort connection = p.GetConnection(0);
-				if(connection.node is StateNode)
+				NodePort portBranch = GetPort("transitionIfTrue");
+				NodePort connection = portBranch.GetConnection(0);
+				if (connection.node is StateNode)
+					return connection.node as StateNode;
+			} else
+			{
+				NodePort portBranch = GetPort("transitionIfFalse");
+				NodePort connection = portBranch.GetConnection(0);
+				if (connection.node is StateNode)
 					return connection.node as StateNode;
 			}
 			return null;
