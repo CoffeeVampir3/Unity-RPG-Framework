@@ -6,11 +6,11 @@ namespace RPGFramework {
 	[CreateAssetMenu]
 	public class WiggleState : BaseState {
 		public override void OnEnterState(GameObject thisObject) {
-			Debug.Log("Entered State: " + thisObject.name);
+			Debug.Log("Entered State: " + this.name);
 		}
 
 		public override void OnExitState(GameObject thisObject) {
-			Debug.Log("Exited State: " + thisObject.name);
+			Debug.Log("Exited State: " + this.name);
 		}
 
 		private float mew = 0f;

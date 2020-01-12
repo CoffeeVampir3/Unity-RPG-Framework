@@ -20,7 +20,7 @@ namespace RPGFramework.SMGraph {
 			return thisState;
 		}
 
-		#region State Controls
+		#region MovingStates
 
 		private void MoveNextImmediateState(Node connectingNode) {
 			if(connectingNode is StateNode)
@@ -77,6 +77,10 @@ namespace RPGFramework.SMGraph {
 			MoveNextTransition(exitPort.Connection.node);
 			MoveNextPortal(exitPort.Connection.node);
 		}
+
+		#endregion
+
+		#region StateMachine functions
 
 		public void OnEnter() {
 			StateMachineGraph fsmGraph = graph as StateMachineGraph;
