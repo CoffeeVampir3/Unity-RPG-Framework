@@ -11,7 +11,7 @@ https://github.com/Siccity/xNode
   
 ### State-Behaviour Graph
   
-![Behaviour Graph](https://github.com/CoffeeVampir3/Unity-RPG-Framework/blob/screenshots/c8wINT9w4g.gif "State Behaviour Graph")
+![Behaviour Graph](https://github.com/CoffeeVampir3/Unity-RPG-Framework/blob/screenshots/M7I9iKQflI.gif "State Behaviour Graph")
   
 Allows you to visually script state machine behaviours for any monoB.
 
