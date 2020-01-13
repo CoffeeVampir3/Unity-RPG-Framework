@@ -1,8 +1,5 @@
 **
 # <Vampire Framework>
-
-![](https://github.com/oneleif/olWebsite/blob/master/Public/images/homeLogo.png?raw=true)
-
 ### Project Info
 
 =======
