@@ -36,9 +36,17 @@ namespace RPGFramework.SMGraph {
 			{
 				TransitionNode node = connectingNode as TransitionNode;
 				bool shouldTransition = node.ShouldTransition();
-				StateNode transitionNode = node.GetTransitionNode(shouldTransition);
-				StateMachineGraph fsmGraph = graph as StateMachineGraph;
-				fsmGraph.TransitionToState(transitionNode);
+				NodePort branchPort = node.GetTransitionPath(shouldTransition);
+				Node nextNode = branchPort.node;
+
+				if (nextNode == null)
+				{
+					return;
+				}
+				MoveNextImmediateState(nextNode);
+				MoveNextTransition(nextNode);
+				MoveNextForwarded(nextNode);
+
 			}
 		}
 
