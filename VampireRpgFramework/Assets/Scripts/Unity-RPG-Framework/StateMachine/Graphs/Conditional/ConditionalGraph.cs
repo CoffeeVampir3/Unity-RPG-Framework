@@ -8,7 +8,11 @@ namespace RPGFramework.CndGraph {
 	[CreateAssetMenu]
 	public class ConditionalGraph : NodeGraph {
 
+		[HideInInspector]
+		[SerializeField]
 		public TransitionNode parentNode = null;
+		[HideInInspector]
+		[SerializeField]
 		public ConditionalRootNode rootNode = null;
 
 		[SerializeField]  

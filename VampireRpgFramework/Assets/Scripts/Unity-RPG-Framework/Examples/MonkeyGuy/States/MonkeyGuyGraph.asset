@@ -175,8 +175,8 @@ MonoBehaviour:
     values:
     - _fieldName: enteringValue
       _node: {fileID: -4238458806144551804}
-      _typeQualifiedName: RPGFramework.Helpers.PortalNodeInput+Any, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: exitState
         node: {fileID: 2006929417080764248}
@@ -292,8 +292,8 @@ MonoBehaviour:
     values:
     - _fieldName: enteringValue
       _node: {fileID: 2957392878452298686}
-      _typeQualifiedName: RPGFramework.Helpers.PortalNodeInput+Any, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: exitState
         node: {fileID: -5189295183603858473}

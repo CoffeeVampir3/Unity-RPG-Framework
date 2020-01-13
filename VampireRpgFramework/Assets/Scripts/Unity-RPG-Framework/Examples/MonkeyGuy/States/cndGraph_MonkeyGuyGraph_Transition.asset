@@ -116,8 +116,8 @@ MonoBehaviour:
     values:
     - _fieldName: enteringValue
       _node: {fileID: 1946827441617631282}
-      _typeQualifiedName: RPGFramework.Helpers.PortalNodeInput+Any, Assembly-CSharp,
-        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
       connections:
       - fieldName: evaluation
         node: {fileID: -2861181585215777649}

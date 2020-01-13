@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3590aca0ae98dd04484996bdb365fd7e, type: 3}
-  m_Name: MonkeyPunch
+  m_Name: Starting State
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
   position: {x: 40, y: -72}
@@ -289,6 +289,7 @@ MonoBehaviour:
   - {fileID: -657889099625891726}
   - {fileID: -7735890222585649363}
   - {fileID: -8176032687735740798}
+  _defaultState: {fileID: -5637862842474229774}
   stateControlledObject: {fileID: 0}
 --- !u!114 &56119552851417481
 MonoBehaviour:
@@ -599,6 +600,9 @@ MonoBehaviour:
       _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
+      - fieldName: output
+        node: {fileID: 0}
+        reroutePoints: []
       - fieldName: output
         node: {fileID: 0}
         reroutePoints: []
