@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scripts/Unity-RPG-Framework/Examples/Scene/ExampleScene.unity
+    guid: 161347ad6ec265b43b5c54363f79640f
+  - enabled: 1
+    path: Assets/Scripts/Unity-RPG-Framework/Examples/Scene/Goto.unity
+    guid: ec4638ae60ea731428b5abb743c90642
   m_configObjects: {}

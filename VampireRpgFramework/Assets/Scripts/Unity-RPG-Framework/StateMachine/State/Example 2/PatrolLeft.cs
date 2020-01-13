@@ -5,18 +5,20 @@ using UnityEngine.SceneManagement;
 
 namespace RPGFramework {
 	[CreateAssetMenu]
-	public class SantaState : BaseState {
+	public class PatrolLeft : BaseState {
 		public override void OnEnterState(GameObject thisObject) {
-			Debug.Log("Entered State: " + this.name);
 		}
 
 		public override void OnExitState(GameObject thisObject) {
-			Debug.Log("Exited State: " + this.name);
 		}
 
 		public override void OnUpdate(GameObject thisObject) {
 			Transform t = thisObject.transform;
-			t.Rotate(Vector3.up, 3);
+			t.localPosition += new Vector3(.05f, 0);
+
+
+			StateMachine sm = thisObject.GetComponent<StateMachine>();
+			sm.NextState();
 		}
 	}
 }
