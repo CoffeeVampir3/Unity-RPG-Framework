@@ -9,11 +9,13 @@ using XNode;
 /// </summary>
 
 namespace RPGFramework.SMGraph {
+	[Serializable]
 	public class StateNode : Node {
 
 		[Input(ShowBackingValue.Never, ConnectionType.Multiple)] public BaseState enterState = null;
 		[Output(ShowBackingValue.Never, ConnectionType.Override)] public BaseState exitState; //Variable hard reference by string name in MoveNext()
 
+		[SerializeField]
 		public BaseState thisState;
 
 		public override object GetValue(NodePort port) {

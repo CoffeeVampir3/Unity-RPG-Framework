@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6061211436284036790
+--- !u!114 &-6426263343363395774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9e1d3965db6e0d428646c92e1b8e65b, type: 3}
-  m_Name: True
+  m_Name: Bool
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -312, y: 8}
+  position: {x: -584, y: -24}
   ports:
     keys:
     - output
     values:
     - _fieldName: output
-      _node: {fileID: -6061211436284036790}
+      _node: {fileID: -6426263343363395774}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: input
-        node: {fileID: -2795689501416396483}
+        node: {fileID: 6372735872528930434}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -32,7 +32,7 @@ MonoBehaviour:
       _dynamic: 0
   output: 0
   outputValue: 1
---- !u!114 &-5708123220396430113
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,132 +41,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: Random Int
-  m_EditorClassIdentifier: Assembly-CSharp:RPGFramework.Helpers:RandomIntNode
-  graph: {fileID: 11400000}
-  position: {x: -312, y: -104}
-  ports:
-    keys:
-    - output
-    values:
-    - _fieldName: output
-      _node: {fileID: -5708123220396430113}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: select
-        node: {fileID: -2795689501416396483}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-  output: 0
-  lastValue: 0
-  inclusiveMin: 0
-  inclusiveMax: 3
---- !u!114 &-2795689501416396483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c67c4549bdf5674280b978a5c849e34, type: 3}
-  m_Name: One in 4 chance
+  m_Script: {fileID: 11500000, guid: 96fa1d73aa3c48a4bb497e1c364c613a, type: 3}
+  m_Name: cndGraph_New State Machine Graph_Transition
   m_EditorClassIdentifier: 
-  graph: {fileID: 11400000}
-  position: {x: -56, y: -24}
-  ports:
-    keys:
-    - select
-    - input
-    - selections
-    - selections 0
-    - selections 1
-    - selections 2
-    - selections 3
-    values:
-    - _fieldName: select
-      _node: {fileID: -2795689501416396483}
-      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-      connections:
-      - fieldName: output
-        node: {fileID: 0}
-        reroutePoints: []
-      - fieldName: output
-        node: {fileID: -5708123220396430113}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: input
-      _node: {fileID: -2795689501416396483}
-      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: output
-        node: {fileID: -6061211436284036790}
-        reroutePoints: []
-      _direction: 0
-      _connectionType: 1
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: selections
-      _node: {fileID: -2795689501416396483}
-      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 0
-    - _fieldName: selections 0
-      _node: {fileID: -2795689501416396483}
-      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: shouldTransition
-        node: {fileID: -1518797146923910982}
-        reroutePoints: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: selections 1
-      _node: {fileID: -2795689501416396483}
-      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: selections 2
-      _node: {fileID: -2795689501416396483}
-      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-    - _fieldName: selections 3
-      _node: {fileID: -2795689501416396483}
-      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
-        Culture=neutral, PublicKeyToken=null
-      connections: []
-      _direction: 1
-      _connectionType: 0
-      _typeConstraint: 0
-      _dynamic: 1
-  select: 0
---- !u!114 &-1518797146923910982
+  nodes:
+  - {fileID: 4608060685239267794}
+  - {fileID: -6426263343363395774}
+  - {fileID: 6372735872528930434}
+  - {fileID: 6899480100081125290}
+  parentNode: {fileID: -6411612399161605664, guid: eba4a8ad500473b4eb2aee4f57cfc6ec,
+    type: 2}
+  rootNode: {fileID: 4608060685239267794}
+  stateControlledObject: {fileID: 0}
+--- !u!114 &4608060685239267794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,18 +66,18 @@ MonoBehaviour:
   m_Name: Condition Root Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 264, y: 8}
+  position: {x: 0, y: 0}
   ports:
     keys:
     - shouldTransition
     values:
     - _fieldName: shouldTransition
-      _node: {fileID: -1518797146923910982}
+      _node: {fileID: 4608060685239267794}
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: selections 0
-        node: {fileID: -2795689501416396483}
+        node: {fileID: 6372735872528930434}
         reroutePoints: []
       _direction: 0
       _connectionType: 1
@@ -198,7 +85,7 @@ MonoBehaviour:
       _dynamic: 0
   shouldTransition: 0
   transitionValue: 1
---- !u!114 &11400000
+--- !u!114 &6372735872528930434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,15 +94,105 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96fa1d73aa3c48a4bb497e1c364c613a, type: 3}
-  m_Name: cndGraph_Test_Transition
+  m_Script: {fileID: 11500000, guid: 8c67c4549bdf5674280b978a5c849e34, type: 3}
+  m_Name: Select
   m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: -1518797146923910982}
-  - {fileID: -2795689501416396483}
-  - {fileID: -6061211436284036790}
-  - {fileID: -5708123220396430113}
-  parentNode: {fileID: -7159609448290165022, guid: 7696f7a6d8956a346a1f272b27f92f17,
-    type: 2}
-  rootNode: {fileID: -1518797146923910982}
-  stateControlledObject: {fileID: 0}
+  graph: {fileID: 11400000}
+  position: {x: -264, y: -72}
+  ports:
+    keys:
+    - select
+    - input
+    - selections
+    - selections 0
+    - selections 1
+    values:
+    - _fieldName: select
+      _node: {fileID: 6372735872528930434}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: 6899480100081125290}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 6372735872528930434}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: output
+        node: {fileID: -6426263343363395774}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: selections
+      _node: {fileID: 6372735872528930434}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: selections 0
+      _node: {fileID: 6372735872528930434}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: shouldTransition
+        node: {fileID: 4608060685239267794}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: selections 1
+      _node: {fileID: 6372735872528930434}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  select: 0
+--- !u!114 &6899480100081125290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Random Int
+  m_EditorClassIdentifier: Assembly-CSharp:RPGFramework.Helpers:RandomIntNode
+  graph: {fileID: 11400000}
+  position: {x: -568, y: -168}
+  ports:
+    keys:
+    - output
+    values:
+    - _fieldName: output
+      _node: {fileID: 6899480100081125290}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: select
+        node: {fileID: 6372735872528930434}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  output: 0
+  lastValue: 0
+  inclusiveMin: 0
+  inclusiveMax: 1

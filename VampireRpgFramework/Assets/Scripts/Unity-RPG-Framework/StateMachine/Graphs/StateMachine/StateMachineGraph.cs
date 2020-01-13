@@ -11,7 +11,6 @@ namespace RPGFramework.SMGraph {
 		[SerializeField]
 		public StateNode currentState { get; private set; }
 		[SerializeField]
-		[HideInInspector]
 		private StateNode _defaultState;
 		[SerializeField]
 		public StateNode defaultState {
