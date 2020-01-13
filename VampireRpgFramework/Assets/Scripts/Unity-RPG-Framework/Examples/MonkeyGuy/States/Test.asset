@@ -607,6 +607,9 @@ MonoBehaviour:
         node: {fileID: 0}
         reroutePoints: []
       - fieldName: output
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: output
         node: {fileID: -8176032687735740798}
         reroutePoints: []
       _direction: 0

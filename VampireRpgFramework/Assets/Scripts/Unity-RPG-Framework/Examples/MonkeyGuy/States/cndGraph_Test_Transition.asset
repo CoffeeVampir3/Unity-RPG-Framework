@@ -96,6 +96,9 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: output
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: output
         node: {fileID: -5708123220396430113}
         reroutePoints: []
       _direction: 0

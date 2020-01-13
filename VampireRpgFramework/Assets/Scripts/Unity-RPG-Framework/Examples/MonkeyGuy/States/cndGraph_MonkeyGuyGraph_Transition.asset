@@ -69,7 +69,7 @@ MonoBehaviour:
   evaluation: 1
   thresholdPercent: 1
   convertedMeetsValue: 0
-  inputStatValue: 50
+  inputStatValue: -2147483648
   maxValue: 50
 --- !u!114 &11400000
 MonoBehaviour:
