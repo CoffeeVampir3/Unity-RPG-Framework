@@ -4,8 +4,8 @@ As a note, this library is an active work in progress and shouldn't be relied up
 
 
 **
-# <Project Name>
-## oneleif Active Project
+# <Vampire Framework>
+## Oneleif Active Project
 
 ![](https://github.com/oneleif/olWebsite/blob/master/Public/images/homeLogo.png?raw=true)
 
