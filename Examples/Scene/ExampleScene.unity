@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f59d3a34a2d0a4cbfda8f75acdd395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateGraph: {fileID: 11400000, guid: e177f54d048119f4e8e9b11c4f4ed6f7, type: 2}
+  stateGraph: {fileID: 11400000, guid: 7696f7a6d8956a346a1f272b27f92f17, type: 2}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 6.7907934e-33, y: 1.3563156e-19, z: 1.3563156e-19,
+  m_BoundingSphereOverride: {x: 1.3563156e-19, y: 1.3563156e-19, z: 1.3563156e-19,
     w: 1.3563156e-19}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: e177f54d048119f4e8e9b11c4f4ed6f7, type: 2}
+      - m_Target: {fileID: 11400000, guid: 7696f7a6d8956a346a1f272b27f92f17, type: 2}
         m_MethodName: NextState
         m_Mode: 1
         m_Arguments:

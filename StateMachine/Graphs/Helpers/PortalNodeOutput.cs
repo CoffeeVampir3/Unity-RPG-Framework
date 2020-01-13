@@ -7,7 +7,7 @@ using RPGFramework.Properties;
 using RPGFramework.CndGraph;
 
 namespace RPGFramework.Helpers {
-	public class PortalNodeOutput : Node {
+	public class PortalNodeOutput : Node, IForwardingNode {
 		[Output(ShowBackingValue.Never, ConnectionType.Multiple)] public Any outputValue;
 		public PortalNodeInput inputNode; //States dont care, used to transmit values only.
 
@@ -22,6 +22,12 @@ namespace RPGFramework.Helpers {
 			if (inputNode == null)
 				return null;
 			return inputNode.GetInputPort("enteringValue").GetInputValue();
+		}
+
+		public NodePort GetForwardingPort() {
+			if (inputNode == null)
+				return null;
+			return inputNode.GetOutputPort("enteringValue");
 		}
 
 		[System.Serializable]

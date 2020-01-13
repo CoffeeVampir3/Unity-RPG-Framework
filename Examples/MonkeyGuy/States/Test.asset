@@ -1,0 +1,595 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9204976205066039112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123ec62d621b871419323443f0d01d37, type: 3}
+  m_Name: Select 1
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 392, y: -456}
+  ports:
+    keys:
+    - enteringValue
+    values:
+    - _fieldName: enteringValue
+      _node: {fileID: -9204976205066039112}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: selections 0
+        node: {fileID: 5322885234598154007}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  outputNode: {fileID: 1083278621384872026}
+--- !u!114 &-8176032687735740798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Random Int
+  m_EditorClassIdentifier: Assembly-CSharp:RPGFramework.Helpers:RandomIntNode
+  graph: {fileID: 11400000}
+  position: {x: -136, y: -488}
+  ports:
+    keys:
+    - output
+    values:
+    - _fieldName: output
+      _node: {fileID: -8176032687735740798}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: select
+        node: {fileID: 5322885234598154007}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  output: 0
+  lastValue: 1
+  inclusiveMin: 0
+  inclusiveMax: 2
+--- !u!114 &-5637862842474229774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3590aca0ae98dd04484996bdb365fd7e, type: 3}
+  m_Name: Starting State
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -136, y: -376}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: -5637862842474229774}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputValue
+        node: {fileID: 3182840720591354495}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: -5637862842474229774}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 5322885234598154007}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: b1e399c269b21a2459e9e24c37eb5c7e, type: 2}
+--- !u!114 &-4995880759084198757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3590aca0ae98dd04484996bdb365fd7e, type: 3}
+  m_Name: MonkeyPunch
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 40, y: -72}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: -4995880759084198757}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: 4022456537623147776}
+        reroutePoints: []
+      - fieldName: outputValue
+        node: {fileID: 4396626868042449724}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: -4995880759084198757}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: 4847577685361821571}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: 34ce2e654960a524395ef919337db82a, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4336a0bc045d7c94d88cc78835adf2ea, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 5322885234598154007}
+  - {fileID: -5637862842474229774}
+  - {fileID: 4847577685361821571}
+  - {fileID: -4995880759084198757}
+  - {fileID: 4022456537623147776}
+  - {fileID: 4020053469187622280}
+  - {fileID: 3182840720591354495}
+  - {fileID: -8176032687735740798}
+  - {fileID: -9204976205066039112}
+  - {fileID: 6283288629153935188}
+  - {fileID: 2892858256973659268}
+  - {fileID: 1083278621384872026}
+  - {fileID: 4396626868042449724}
+  - {fileID: 9050097320943317646}
+  stateControlledObject: {fileID: 0}
+--- !u!114 &1083278621384872026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82edb1d45cdacb4483f5ae88a330c84, type: 3}
+  m_Name: Portal to Monkey Kick
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -392, y: -8}
+  ports:
+    keys:
+    - outputValue
+    values:
+    - _fieldName: outputValue
+      _node: {fileID: 1083278621384872026}
+      _typeQualifiedName: RPGFramework.Helpers.PortalNodeOutput+Any, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: 4022456537623147776}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  inputNode: {fileID: 0}
+--- !u!114 &2892858256973659268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123ec62d621b871419323443f0d01d37, type: 3}
+  m_Name: Select 3
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 392, y: -296}
+  ports:
+    keys:
+    - enteringValue
+    values:
+    - _fieldName: enteringValue
+      _node: {fileID: 2892858256973659268}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: selections 2
+        node: {fileID: 5322885234598154007}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  outputNode: {fileID: 9050097320943317646}
+--- !u!114 &3182840720591354495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82edb1d45cdacb4483f5ae88a330c84, type: 3}
+  m_Name: Starting State Output Portal
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -344, y: -376}
+  ports:
+    keys:
+    - outputValue
+    values:
+    - _fieldName: outputValue
+      _node: {fileID: 3182840720591354495}
+      _typeQualifiedName: RPGFramework.Helpers.PortalNodeOutput+Any, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: -5637862842474229774}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  inputNode: {fileID: 0}
+--- !u!114 &4020053469187622280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123ec62d621b871419323443f0d01d37, type: 3}
+  m_Name: State Input Portal
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 488, y: -120}
+  ports:
+    keys:
+    - enteringValue
+    values:
+    - _fieldName: enteringValue
+      _node: {fileID: 4020053469187622280}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: 4847577685361821571}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  outputNode: {fileID: 3182840720591354495}
+--- !u!114 &4022456537623147776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3590aca0ae98dd04484996bdb365fd7e, type: 3}
+  m_Name: MonkeyKick
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: -8}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: 4022456537623147776}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: outputValue
+        node: {fileID: 1083278621384872026}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: 4022456537623147776}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: -4995880759084198757}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: 695de2c09ac9db043bd1341c51ca4b61, type: 2}
+--- !u!114 &4396626868042449724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82edb1d45cdacb4483f5ae88a330c84, type: 3}
+  m_Name: Portal to Monkey Punch
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: -88}
+  ports:
+    keys:
+    - outputValue
+    values:
+    - _fieldName: outputValue
+      _node: {fileID: 4396626868042449724}
+      _typeQualifiedName: RPGFramework.Helpers.PortalNodeOutput+Any, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: -4995880759084198757}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  inputNode: {fileID: 0}
+--- !u!114 &4847577685361821571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3590aca0ae98dd04484996bdb365fd7e, type: 3}
+  m_Name: MonkeySlide
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 264, y: -136}
+  ports:
+    keys:
+    - enterState
+    - exitState
+    values:
+    - _fieldName: enterState
+      _node: {fileID: 4847577685361821571}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: -4995880759084198757}
+        reroutePoints: []
+      - fieldName: outputValue
+        node: {fileID: 9050097320943317646}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: exitState
+      _node: {fileID: 4847577685361821571}
+      _typeQualifiedName: RPGFramework.BaseState, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enteringValue
+        node: {fileID: 4020053469187622280}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  enterState: {fileID: 0}
+  exitState: {fileID: 0}
+  thisState: {fileID: 11400000, guid: 695de2c09ac9db043bd1341c51ca4b61, type: 2}
+--- !u!114 &5322885234598154007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c67c4549bdf5674280b978a5c849e34, type: 3}
+  m_Name: Select
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 152, y: -456}
+  ports:
+    keys:
+    - select
+    - input
+    - selections
+    - selections 0
+    - selections 1
+    - selections 2
+    values:
+    - _fieldName: select
+      _node: {fileID: 5322885234598154007}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: -8176032687735740798}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: input
+      _node: {fileID: 5322885234598154007}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: exitState
+        node: {fileID: -5637862842474229774}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: selections
+      _node: {fileID: 5322885234598154007}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: selections 0
+      _node: {fileID: 5322885234598154007}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enteringValue
+        node: {fileID: -9204976205066039112}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: selections 1
+      _node: {fileID: 5322885234598154007}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enteringValue
+        node: {fileID: 6283288629153935188}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: selections 2
+      _node: {fileID: 5322885234598154007}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enteringValue
+        node: {fileID: 2892858256973659268}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+  select: 0
+--- !u!114 &6283288629153935188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 123ec62d621b871419323443f0d01d37, type: 3}
+  m_Name: Select 2
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 392, y: -376}
+  ports:
+    keys:
+    - enteringValue
+    values:
+    - _fieldName: enteringValue
+      _node: {fileID: 6283288629153935188}
+      _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: selections 1
+        node: {fileID: 5322885234598154007}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+  outputNode: {fileID: 4396626868042449724}
+--- !u!114 &9050097320943317646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82edb1d45cdacb4483f5ae88a330c84, type: 3}
+  m_Name: Portal to Monkey Slide
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 40, y: -136}
+  ports:
+    keys:
+    - outputValue
+    values:
+    - _fieldName: outputValue
+      _node: {fileID: 9050097320943317646}
+      _typeQualifiedName: RPGFramework.Helpers.PortalNodeOutput+Any, Assembly-CSharp,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: enterState
+        node: {fileID: 4847577685361821571}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  inputNode: {fileID: 0}
