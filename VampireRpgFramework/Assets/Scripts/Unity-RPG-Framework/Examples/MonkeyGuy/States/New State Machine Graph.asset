@@ -159,6 +159,7 @@ MonoBehaviour:
   - {fileID: 1756022124362429384}
   - {fileID: -6417629061423137196}
   - {fileID: 779435917907275378}
+  _currentState: {fileID: 5028588466761749735}
   _defaultState: {fileID: 5028588466761749735}
   stateControlledObject: {fileID: 0}
 --- !u!114 &779435917907275378
