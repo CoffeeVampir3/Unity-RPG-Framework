@@ -10,7 +10,7 @@ namespace RPGFramework.CndGraph {
 	public class ConditionalRootNodeEditor : NodeEditor {
 
 		private int evaluationCounter = 0;
-		private int evaluateEveryNFrames = 12; //Recalculate every N frames
+		private int evaluateEveryNFrames = 30; //Recalculate every N frames
 		private bool lastCachedEvaluation = false;
 
 		private void EvaulateGraphCached(ConditionalGraph graph) {

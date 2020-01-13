@@ -29,25 +29,22 @@ namespace RPGFramework.SMGraph {
 			return conditionGraph.EvaluateGraph();
 		}
 
-		public StateNode GetTransitionNode(bool transitionBranch, bool dontOverride = false) {
+		public NodePort GetTransitionPath(bool transitionBranch, bool dontOverride = false) {
 			if(overrideOut == true && dontOverride == false)
 			{
-				return GetTransitionNode(overrideValue, true);
+				return GetTransitionPath(overrideValue, true);
 			}
 			if(transitionBranch)
 			{
 				NodePort portBranch = GetPort("transitionIfTrue");
 				NodePort connection = portBranch.GetConnection(0);
-				if (connection.node is StateNode)
-					return connection.node as StateNode;
+				return connection;
 			} else
 			{
 				NodePort portBranch = GetPort("transitionIfFalse");
 				NodePort connection = portBranch.GetConnection(0);
-				if (connection.node is StateNode)
-					return connection.node as StateNode;
+				return connection;
 			}
-			return null;
 		}
 
 		public override object GetValue(NodePort port) {
