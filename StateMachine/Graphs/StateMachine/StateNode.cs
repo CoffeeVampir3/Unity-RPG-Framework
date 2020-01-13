@@ -42,17 +42,21 @@ namespace RPGFramework.SMGraph {
 			}
 		}
 
-		private void MoveNextPortal(Node connectingNode) {
-			if (connectingNode is Helpers.PortalNodeInput)
+		private void MoveNextForwarded(Node connectingNode) {
+			if (connectingNode is Helpers.IForwardingNode)
 			{
-				Helpers.PortalNodeInput inNode = connectingNode as Helpers.PortalNodeInput;
-				Helpers.PortalNodeOutput outNode = inNode.outputNode;
-				NodePort outNodeExitPort = outNode.GetOutputPort("outputValue");
+				Helpers.IForwardingNode inNode = connectingNode as Helpers.IForwardingNode;
+				NodePort outNodeExitPort = inNode.GetForwardingPort();
 
-				//Recur through the portal
-				MoveNextImmediateState(outNodeExitPort.Connection.node);
-				MoveNextTransition(outNodeExitPort.Connection.node);
-				MoveNextPortal(outNodeExitPort.Connection.node);
+				Node nextNode = outNodeExitPort.Connection.node;
+				if(nextNode == null)
+				{
+					return;
+				}
+				//Recur through, including forwarding nodes.
+				MoveNextImmediateState(nextNode);
+				MoveNextTransition(nextNode);
+				MoveNextForwarded(nextNode);
 			}
 		}
 
@@ -75,7 +79,7 @@ namespace RPGFramework.SMGraph {
 
 			MoveNextImmediateState(exitPort.Connection.node);
 			MoveNextTransition(exitPort.Connection.node);
-			MoveNextPortal(exitPort.Connection.node);
+			MoveNextForwarded(exitPort.Connection.node);
 		}
 
 		#endregion
