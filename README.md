@@ -1,7 +1,3 @@
-**
-# <Vampire Framework>
-### Project Info
-
 =======
 # Unity RPG Framework
  
