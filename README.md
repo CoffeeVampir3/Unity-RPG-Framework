@@ -1,9 +1,5 @@
-# Active Work in Progress
-
-As a note, this library is an active work in progress and shouldn't be relied upon as a stable implementation yet. <3
 **
 # <Vampire Framework>
-## Oneleif Active Project
 
 ![](https://github.com/oneleif/olWebsite/blob/master/Public/images/homeLogo.png?raw=true)
 
@@ -34,6 +30,7 @@ Easily add or remove stats on items/players/enemies/whatever. Integration with s
 
 See example scene included with project.
 
+## Oneleif Active Project
 This project is a oneleif active project.
 
 [![](https://img.shields.io/badge/oneleif-Twitter-blue.svg)](https://twitter.com/oneleifdev)
