@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/Scripts/Unity-RPG-Framework/Examples/Scene/ExampleScene.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
