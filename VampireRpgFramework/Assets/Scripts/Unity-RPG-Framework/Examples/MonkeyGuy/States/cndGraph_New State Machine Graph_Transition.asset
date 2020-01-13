@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bool
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -584, y: -24}
+  position: {x: -536, y: -8}
   ports:
     keys:
     - output
@@ -32,6 +32,55 @@ MonoBehaviour:
       _dynamic: 0
   output: 0
   outputValue: 1
+--- !u!114 &-5615288185303575419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca238ca0dabdf2340993a3437c1f08a5, type: 3}
+  m_Name: Stat Threshold Condition
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -376, y: -296}
+  ports:
+    keys:
+    - inputValue
+    - evaluation
+    values:
+    - _fieldName: inputValue
+      _node: {fileID: -5615288185303575419}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: outputValue
+        node: {fileID: 7715429531817518310}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 1
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: evaluation
+      _node: {fileID: -5615288185303575419}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: shouldTransition
+        node: {fileID: 4608060685239267794}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  inputValue: 0
+  evaluation: 1
+  thresholdPercent: 20
+  convertedMeetsValue: 400
+  inputStatValue: 2000
+  maxValue: 2000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,6 +98,8 @@ MonoBehaviour:
   - {fileID: -6426263343363395774}
   - {fileID: 6372735872528930434}
   - {fileID: 6899480100081125290}
+  - {fileID: 7715429531817518310}
+  - {fileID: -5615288185303575419}
   parentNode: {fileID: -6411612399161605664, guid: eba4a8ad500473b4eb2aee4f57cfc6ec,
     type: 2}
   rootNode: {fileID: 4608060685239267794}
@@ -66,7 +117,7 @@ MonoBehaviour:
   m_Name: Condition Root Node
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 0, y: 0}
+  position: {x: -104, y: -280}
   ports:
     keys:
     - shouldTransition
@@ -76,8 +127,8 @@ MonoBehaviour:
       _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
       connections:
-      - fieldName: selections 0
-        node: {fileID: 6372735872528930434}
+      - fieldName: evaluation
+        node: {fileID: -5615288185303575419}
         reroutePoints: []
       _direction: 0
       _connectionType: 1
@@ -113,6 +164,9 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: output
+        node: {fileID: 0}
+        reroutePoints: []
+      - fieldName: output
         node: {fileID: 6899480100081125290}
         reroutePoints: []
       _direction: 0
@@ -144,10 +198,7 @@ MonoBehaviour:
       _node: {fileID: 6372735872528930434}
       _typeQualifiedName: RPGFramework.Helpers.Any, Assembly-CSharp, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
-      connections:
-      - fieldName: shouldTransition
-        node: {fileID: 4608060685239267794}
-        reroutePoints: []
+      connections: []
       _direction: 1
       _connectionType: 0
       _typeConstraint: 0
@@ -175,7 +226,7 @@ MonoBehaviour:
   m_Name: Random Int
   m_EditorClassIdentifier: Assembly-CSharp:RPGFramework.Helpers:RandomIntNode
   graph: {fileID: 11400000}
-  position: {x: -568, y: -168}
+  position: {x: -536, y: -136}
   ports:
     keys:
     - output
@@ -193,6 +244,39 @@ MonoBehaviour:
       _typeConstraint: 0
       _dynamic: 0
   output: 0
-  lastValue: 0
+  lastValue: 1
   inclusiveMin: 0
   inclusiveMax: 1
+--- !u!114 &7715429531817518310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b355593b47c19a4e823278bdfe04c1e, type: 3}
+  m_Name: Get Stat
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -600, y: -296}
+  ports:
+    keys:
+    - outputValue
+    values:
+    - _fieldName: outputValue
+      _node: {fileID: 7715429531817518310}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: inputValue
+        node: {fileID: -5615288185303575419}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  outputValue: 2000
+  currentValue: 2000
+  targetStat: {fileID: 11400000, guid: 1e5b3693227b7d746ac8cc9f1ec33113, type: 2}

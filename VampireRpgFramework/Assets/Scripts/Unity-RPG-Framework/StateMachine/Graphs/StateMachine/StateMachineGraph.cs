@@ -8,8 +8,14 @@ namespace RPGFramework.SMGraph {
 	public class StateMachineGraph : NodeGraph {
 
 		// The current "active" node
+
 		[SerializeField]
-		public StateNode currentState { get; private set; }
+		private StateNode _currentState;
+		[SerializeField]
+		public StateNode currentState {
+			get { return _currentState; }
+			private set { _currentState = value; }
+		}
 		[SerializeField]
 		private StateNode _defaultState;
 		[SerializeField]
@@ -17,9 +23,9 @@ namespace RPGFramework.SMGraph {
 			get { return _defaultState; }
 			set {
 				_defaultState = value;
-				if(currentState == null)
+				if(_currentState == null)
 				{
-					currentState = value;
+					_currentState = value;
 				}
 			}
 		}
