@@ -189,5 +189,6 @@ namespace XNodeEditor {
                 return inspectedType;
             }
         }
-    }
+
+	}
 }

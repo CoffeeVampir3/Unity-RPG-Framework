@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using XNodeEditor;
+using RPGFramework.CndGraph;
 
 namespace RPGFramework {
 	public class ConditionTester : MonoBehaviour {
@@ -12,6 +13,7 @@ namespace RPGFramework {
 		}
 
 		
+		[TargetGraph(typeof(ConditionalGraph))]
 		public class Moose : BaseCondition {
 			public void DoThing() {
 				Debug.Log(this.createdNodes.Count);

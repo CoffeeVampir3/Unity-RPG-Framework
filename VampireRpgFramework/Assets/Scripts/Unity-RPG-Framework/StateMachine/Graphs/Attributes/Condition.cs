@@ -12,6 +12,23 @@ namespace RPGFramework {
 	[System.AttributeUsage(AttributeTargets.Method)]
 	public class Condition : System.Attribute { /* Empty */ }
 
+	[AttributeUsage(AttributeTargets.Class)]
+	public class TargetGraphAttribute : Attribute,
+	XNodeEditor.Internal.NodeEditorBase<NodeGraphEditor, NodeGraphEditor.CustomNodeGraphEditorAttribute, XNode.NodeGraph>.INodeEditorAttrib {
+		private Type inspectedType;
+		public string editorPrefsKey;
+		/// <summary> Tells a NodeGraphEditor which Graph type it is an editor for </summary>
+		/// <param name="inspectedType">Type that this editor can edit</param>
+		/// <param name="editorPrefsKey">Define unique key for unique layout settings instance</param>
+		public TargetGraphAttribute(Type inspectedType) {
+			this.inspectedType = inspectedType;
+		}
+
+		public Type GetInspectedType() {
+			return inspectedType;
+		}
+	}
+
 	public abstract class BaseCondition {
 		bool result = false;
 		protected List<Node> createdNodes = new List<Node>();
