@@ -151,5 +151,25 @@ namespace XNodeEditor {
                 return inspectedType;
             }
         }
-    }
+
+		#region Custom Code
+
+		[AttributeUsage(AttributeTargets.Class)]
+		public class CustomEditorLinkAttribute : Attribute,
+		XNodeEditor.Internal.NodeEditorBase<NodeEditor, NodeEditor.CustomNodeEditorAttribute, XNode.Node>.INodeEditorAttrib {
+			private Type inspectedType;
+			/// <summary> Tells a NodeEditor which Node type it is an editor for </summary>
+			/// <param name="inspectedType">Type that this editor can edit</param>
+			public CustomEditorLinkAttribute(Type inspectedType) {
+				this.inspectedType = inspectedType;
+			}
+
+			public Type GetInspectedType() {
+				return inspectedType;
+			}
+		}
+
+		#endregion
+
+	}
 }
