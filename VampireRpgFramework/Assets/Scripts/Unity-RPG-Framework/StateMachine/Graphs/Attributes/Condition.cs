@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Reflection;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using XNode;
@@ -27,6 +28,55 @@ namespace RPGFramework {
 		public Type GetInspectedType() {
 			return inspectedType;
 		}
+	}
+
+	//I want AttributeTarget <-> GraphEditor
+	public static class GraphLink<C, A, T>	where C : BaseCondition //The base conditional class
+											where A : TargetGraphAttribute //Graph target attribute
+											where T : NodeGraphEditor //XNode graph editor
+		{
+
+		public static Dictionary<C, T> graphAssociations;
+		public static List<Type> baseAssociations;
+		public static string dbgLogString = "";
+
+		private static void LinkCustomEditors() {
+			graphAssociations = new Dictionary<C, T>();
+			dbgLogString = "Wow!\n";
+
+			Type[] baseConditions = typeof(C).GetDerivedTypes();
+			dbgLogString += baseConditions.Length;
+			for (int i = 0; i < baseConditions.Length; i++)
+			{
+				dbgLogString += baseConditions[i].ToString();
+
+				if (baseConditions[i].IsAbstract) continue;
+				var attribs = baseConditions[i].GetCustomAttributes(typeof(A), false);
+				if (attribs == null || attribs.Length == 0) continue;
+				dbgLogString += attribs.GetType();
+				//A attrib = attribs[0] as A;
+				//graphAssociations.Add(baseConditions[i] as C, attrib.GetInspectedType() as T);
+				//dbgLogString += baseConditions[i].ToString() + attrib.GetInspectedType().ToString() + '\n';
+			}
+		}
+
+		public static string GetDebug() {
+			return dbgLogString;
+		}
+
+		public static void InitializeLinks() {
+			LinkCustomEditors();
+		}
+
+		/*
+		private static T GetEditorFor<target>() {
+			T editor = null;
+			if (graphAssociations == null)
+				return;
+
+
+		}
+		*/
 	}
 
 	public abstract class BaseCondition {

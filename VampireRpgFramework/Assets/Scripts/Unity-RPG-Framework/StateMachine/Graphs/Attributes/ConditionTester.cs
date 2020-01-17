@@ -9,7 +9,9 @@ namespace RPGFramework {
 		public void Start() {
 			Moose m = new Moose();
 
-			m.DoThing();
+			GraphLink<BaseCondition, TargetGraphAttribute, NodeGraphEditor>.InitializeLinks();
+			GraphLink<BaseCondition, TargetGraphAttribute, NodeGraphEditor>.GetDebug();
+			Debug.Log("W");
 		}
 
 		
