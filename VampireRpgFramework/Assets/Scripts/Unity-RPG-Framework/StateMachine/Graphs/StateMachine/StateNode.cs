@@ -115,7 +115,7 @@ namespace RPGFramework.SMGraph {
 				GameObject owner = fsmGraph.GetStateMachineOwner();
 				if (owner != null)
 				{
-					this.thisState.OnEnterState(owner);
+					this.thisState.OnExitState(owner);
 				}
 			}
 		}
@@ -127,7 +127,7 @@ namespace RPGFramework.SMGraph {
 				GameObject owner = fsmGraph.GetStateMachineOwner();
 				if (owner != null)
 				{
-					this.thisState.OnEnterState(owner);
+					this.thisState.OnUpdate(owner);
 				}
 			}
 		}
